@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "instructor_examples"
-version = "0.1.0"
+version = "0.2.0"
 description = "Copy github examples to your local environment without needing to clone the entire repository."
 readme = "README.md"
 authors = [
