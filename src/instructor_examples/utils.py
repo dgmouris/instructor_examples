@@ -49,9 +49,7 @@ class InstructorExamplesCopier:
         self.parse_repo_url()
 
     def clean_remote_repo_folder(self, remote_repo_folder: str) -> str:
-        cleaned_remote_repo_folder = "".join(
-            c for c in remote_repo_folder if ord(c) < 128
-        )
+        cleaned_remote_repo_folder = "".join(c for c in remote_repo_folder if ord(c) < 128)
 
         return cleaned_remote_repo_folder
 
@@ -95,7 +93,6 @@ class InstructorExamplesCopier:
         # loop through the contents and download files or recurse into directories
         print("Downloading Folder:", repo_folder)
         for item in contents:
-
             if item["type"] == "file":
                 file_url = item["download_url"]
                 file_path = os.path.join(folder, item["name"])

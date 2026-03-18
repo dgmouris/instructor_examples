@@ -11,9 +11,7 @@ console = Console()
 
 @app.command()
 def main(
-    remote_repo_folder: str = typer.Argument(
-        ..., help="Input remote_repo_folder path."
-    ),
+    remote_repo_folder: str = typer.Argument(..., help="Input remote_repo_folder path."),
     out_folder: str = typer.Option(None, help="Optional output folder."),
     repo: str = typer.Option(None, help="Optional repo path."),
 ) -> None:

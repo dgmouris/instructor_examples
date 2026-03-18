@@ -1,11 +1,9 @@
-import os
-
-from instructor_examples.utils import InstructorExamplesCopier
+# Additional test for copy_repo_contents with mocks
+from unittest.mock import MagicMock, patch
 
 import pytest
 
-# Additional test for copy_repo_contents with mocks
-from unittest.mock import patch, MagicMock
+from instructor_examples.utils import InstructorExamplesCopier
 
 
 # mocks to the github package.
@@ -41,9 +39,7 @@ def make_subdir_api_response():
     ],
 )
 def test_clean_remote_repo_folder(input_str, expected_output):
-    copier = InstructorExamplesCopier(
-        remote_repo_folder=input_str, out_folder=None, repo=None, console=None
-    )
+    copier = InstructorExamplesCopier(remote_repo_folder=input_str, out_folder=None, repo=None, console=None)
     assert copier.remote_repo_folder == expected_output
 
 
@@ -56,9 +52,7 @@ def test_clean_remote_repo_folder(input_str, expected_output):
     ],
 )
 def test_parse_repo_url(repo_url, expected_owner, expected_repo):
-    copier = InstructorExamplesCopier(
-        remote_repo_folder="", out_folder=None, repo=repo_url, console=None
-    )
+    copier = InstructorExamplesCopier(remote_repo_folder="", out_folder=None, repo=repo_url, console=None)
     assert copier.repo_owner == expected_owner
     assert copier.repo_name == expected_repo
 
@@ -112,9 +106,7 @@ def test_find_settings_file(tmp_path):
     subdir = root / "subdir"
     subdir.mkdir()
     # No settings file initially
-    copier = InstructorExamplesCopier(
-        remote_repo_folder="", out_folder=str(subdir), repo=None, console=None
-    )
+    copier = InstructorExamplesCopier(remote_repo_folder="", out_folder=str(subdir), repo=None, console=None)
     assert copier.find_settings_file(str(subdir)) is None
 
     # Add settings file in root
@@ -127,9 +119,7 @@ def test_parse_settings(tmp_path):
     # Create a valid settings file
     settings_path = tmp_path / "instructor_examples_settings.json"
     settings_path.write_text('{"repo": "https://github.com/owner/repo", "extra": 123}')
-    copier = InstructorExamplesCopier(
-        remote_repo_folder="", out_folder=None, repo=None, console=None
-    )
+    copier = InstructorExamplesCopier(remote_repo_folder="", out_folder=None, repo=None, console=None)
     copier.settings_file = str(settings_path)
     parsed = copier.parse_settings()
     assert parsed["repo"] == "https://github.com/owner/repo"
