@@ -38,6 +38,12 @@ Get students to created a `instructor_examples_settings.json` file in the folder
 }
 ```
 
+Then they can run the following command to copy the examples for each lesson:
+
+```bash
+instructor_examples example_folder_in_repo_url
+```
+
 ## Features
 
 Copies files and folders from GitHub to a local environment.
