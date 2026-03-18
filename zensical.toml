@@ -1,0 +1,26 @@
+[project]
+site_name = "Instructor Examples"
+site_url = "https://dgmouris.github.io/instructor_examples/"
+repo_url = "https://github.com/dgmouris/instructor_examples"
+repo_name = "dgmouris/instructor_examples"
+
+nav = [
+  { "Home" = "index.md" },
+  { "Installation" = "installation.md" },
+  { "Usage" = "usage.md" },
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "material/brightness-7"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "material/brightness-4"
+toggle.name = "Switch to light mode"
+
+[project.plugins.mkdocstrings.handlers.python]
+paths = ["src"]
