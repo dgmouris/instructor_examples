@@ -44,6 +44,11 @@ Then they can run the following command to copy the examples for each lesson:
 instructor_examples example_folder_in_repo_url
 ```
 
+## Demo
+
+![](usage_of_instructor_examples.gif)
+
+
 ## Features
 
 Copies files and folders from GitHub to a local environment.
